@@ -1,1 +1,0 @@
-Traslate_text

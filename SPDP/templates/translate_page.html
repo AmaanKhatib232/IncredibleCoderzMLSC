@@ -2,23 +2,37 @@
 <html>
 
 <head>
-    <title>translate_page</title>
-    <link rel="stylesheet" href="D:\VIT\MLSC HACKATHON\SPDP\static\style.css">
+  <title>translate_page</title>
+  <link rel="stylesheet" href="../static/style.css">
 </head>
 
 <body>
-    <h1>Translate Page</h1>
-    <form method="POST">
-        <label for="text">TEXT:</label>
-        <input type="text" name="text" id="text">
-        <label for="target_language">TO LANGUAGE:</label>
-        <input type="text" name="target_language" id="target_language">
-        <button type="submit">Translate</button>
-      </form>
-      {% if Output_text %}
-        <!-- <img src="{{ thumbnail_url }}" alt="YouTube Thumbnail"> -->
-        <p>{{ Output_text }}</p>
-      {% endif %}
+  <h1>Translate Page</h1>
+
+  <form method="POST">
+    <center>
+      <table>
+        <tr>
+          <td><label for="text">TEXT:</label></td>
+          <td><textarea type="text" name="text" id="text" placeholder="Enter the text that needs to be translated in English required" style="width : 500px; height : 30%"></textarea><br></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="target_language">TO LANGUAGE:</label>
+          </td>
+          <td>
+            <input type="text" name="target_language" id="target_language" required placeholder="Target Language">
+          </td>
+        </tr>
+      </table>
+    </center>
+    <center><button type="submit" class="button">Translate</button></center>
+  </form>
+  
+  {% if Output_text %}
+  <!-- <img src="{{ thumbnail_url }}" alt="YouTube Thumbnail"> -->
+  <p>{{ Output_text }}</p>
+  {% endif %}
 </body>
 
 </html>
