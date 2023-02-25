@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>translate_page</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+    <form>
+        <center>
+            <table>
+                <h1>Generate Image</h1>
+                <br>
+                <hr>
+                <br>
+                <form method="POST">
+                    <label for="text1">TEXT:</label><br>
+                    <input type="text" name="text1" id="text1">
+                    <br><br>
+                    <button type="submit" class="button">Generate</button>
+                </form>
+                <!-- Loop through the output image links and display them. -->
+                {% for link in output_img_links %}
+                <p>------->>>></p>
+                <img src="{{ link }}" alt="">
+                {% endfor %}
+            </table>
+        </center>
+    </form>
+
+</body>
+
+</html>

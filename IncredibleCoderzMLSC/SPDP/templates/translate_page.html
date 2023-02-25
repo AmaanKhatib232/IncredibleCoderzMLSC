@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>translate_page</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+  <h1>Translate Page</h1>
+
+  <form method="POST">
+    <center>
+      <table>
+        <tr>
+          <td><label for="text">TEXT:</label></td>
+          <td><textarea type="text" name="text" id="text" placeholder="Enter the text that needs to be translated in English required" style="width : 500px; height : 30%"></textarea><br></td>
+        </tr>
+        <tr>
+          <td>
+            <label for="target_language">TO LANGUAGE:</label>
+          </td>
+          <td>
+            <input type="text" name="target_language" id="target_language" required placeholder="Target Language">
+          </td>
+        </tr>
+      </table>
+    </center>
+    <center><button type="submit" class="button">Translate</button></center>
+  </form>
+  
+  {% if Output_text %}
+  <!-- <img src="{{ thumbnail_url }}" alt="YouTube Thumbnail"> -->
+  <p>{{ Output_text }}</p>
+  {% endif %}
+</body>
+
+</html>

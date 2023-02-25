@@ -1,0 +1,43 @@
+from flask import Flask, render_template, request
+import requests
+import json
+gp = Flask(_name_)
+
+@gp.route('/', methods=['GET', 'POST'])
+
+def index():
+    if request.method == 'POST':
+        Input_Text = request.form['text1']
+        Output_text = Generate_prompt(Input_Text)
+        print(Output_text)
+        array_of_substrings = Output_text.split(".")
+        output_img_links = []
+        for i in array_of_substrings:
+            output_img_links.append(generate_image(i))
+        # image_promt = generate_image(Output_text)
+        print (output_img_links)
+        
+        return render_template('pi.html', Output_text=output_img_links)
+        # return render_template('gp.html', Output_text=Output_text)
+    else:
+        return render_template('pi.html')
+
+
+def Generate_prompt(text):
+    api_url="https://v1.genr.ai/api/circuit-element/generate-prompt"
+    response = requests.post(api_url, json={'text': text})
+    if response.status_code == 200:
+        return json.loads(response.text)["output"]
+    else:
+        return None
+
+def generate_image(promt):
+    api_url = "https://v1.genr.ai/api/circuit-element/generate-image"
+    response = requests.post(api_url, json={'prompt': promt, 'model': 'stable-diffusion-2', 'height':'512', 'width':'512'})
+    if response.status_code == 200:
+        return json.loads(response.text)["output"]
+    else:
+        return None
+
+if _name_ == '_main_':
+    gp.run(host="localhost", port=5000,debug=True)
