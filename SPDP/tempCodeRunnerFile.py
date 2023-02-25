@@ -1,0 +1,1 @@
+Traslate_text

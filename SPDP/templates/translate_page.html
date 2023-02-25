@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>translate_page</title>
+    <link rel="stylesheet" href="D:\VIT\MLSC HACKATHON\SPDP\static\style.css">
+</head>
+
+<body>
+    <h1>Translate Page</h1>
+    <form method="POST">
+        <label for="text">TEXT:</label>
+        <input type="text" name="text" id="text">
+        <label for="target_language">TO LANGUAGE:</label>
+        <input type="text" name="target_language" id="target_language">
+        <button type="submit">Translate</button>
+      </form>
+      {% if Output_text %}
+        <!-- <img src="{{ thumbnail_url }}" alt="YouTube Thumbnail"> -->
+        <p>{{ Output_text }}</p>
+      {% endif %}
+</body>
+
+</html>
